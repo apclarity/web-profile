@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Condensed+One&family=Special+Gothic+Expanded+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: white;
+  --color-secondary: #030014;
+
+  --color-light-100: #cecefb;
+  --color-light-200: #a8b5db;
+
+  --color-gray-100: #9ca4ab;
+
+  --color-dark-100: #0f0d23;
+
+  --font-dm-sans: DM Sans, sans-serif;
+
+  --breakpoint-xs: 480px;
+}
+
+@layer base {
+  body {
+    font-family: "DM Sans", serif;
+    font-optical-sizing: auto;
+    background: #ffffff;
+  }
+
+  /* h1 {
+    @apply max-w-4xl text-5xl font-bold leading-tight tracking-[-1%] text-white sm:text-[64px] sm:leading-[76px];
+  } */
+
+  /* h2 {
+    @apply text-xl sm:text-3xl md:text-5xl font-bold text-white ;
+  } */
+
+  main {
+    @apply min-h-screen relative bg-primary;
+  }
+
+  header {
+    @apply  mt-5;
+  }
+
+  header img {
+    @apply w-full max-w-lg h-auto object-contain drop-shadow-md;
+  }
+
+  body.windmill-hovered .digit span {
+  --active: 1;
+}
+
+  li {
+    display: list-item
+  }
+
+}
+
+@layer components {
+  .marquee-text {
+  overflow: clip;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.marquee-text-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-move-text var(--speed, 70s) linear infinite
+    var(--direction, forwards);
+  align-items: center;
+  cursor: pointer;
+}
+
+.marquee-text-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-text p {
+  flex: 0 0 auto;
+  margin: 10px 10px;
+  transition: transform 0.8s ease, padding 0.8s ease;
+  align-items: center;
+  white-space: nowrap;
+}
+
+@keyframes marquee-move-text {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-text::before,
+.marquee-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  pointer-events: none;
+  background: linear-gradient(to right, white, rgba(255, 255, 255, 0));
+  z-index: 1;
+}
+
+.marquee-text::before {
+  left: 0;
+}
+
+.marquee-text::after {
+  right: 0;
+  transform: rotate(180deg);
+}
+
+.wave {
+  animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: infinite;  /* Never stop waving :) */
+  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+}
+  .pattern {
+    @apply w-screen h-screen bg-center bg-cover absolute z-0;
+  }
+
+  .wrapper {
+    @apply  p-10 mx-auto flex flex-col relative z-10;
+  }
+
+  .wrapper-header {
+    @apply p-5
+  }
+
+  .wrapper-section {
+    @apply bg-secondary rounded-2xl
+  }
+
+  .trending {
+    @apply mt-20;
+
+    & ul {
+      @apply flex flex-row overflow-y-auto gap-5 -mt-10 w-full hide-scrollbar;
+    }
+
+    & ul li {
+      @apply min-w-[230px] flex flex-row items-center;
+    }
+
+    & ul li p {
+      @apply fancy-text mt-[22px] text-nowrap;
+    }
+
+    & ul li img {
+      @apply w-[127px] h-[163px] rounded-lg object-cover -ml-3.5;
+    }
+  }
+
+   .font-bebas {
+    font-family: "Bebas Neue", sans-serif;
+  }
+
+  .font-arapey{
+    font-family: "Arapey", serif;
+  font-style: normal;
+  }
+
+  .font-arapey-italic{
+    font-family: "Arapey", serif;
+  font-style: italic;
+  }
+
+  .font-special-condensed {
+    font-family: "Special Gothic Condensed One", sans-serif;
+  }
+
+  .font-special-expanded {
+    font-family: "Special Gothic Expanded One", sans-serif;
+  }
+
+  .font-inter {
+    font-family: "Inter", sans-serif;
+  font-style: normal;
+  }
+
+  
+.progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--accent);
+  bottom: 100px;
+}
+
+.parallax {
+  overflow: hidden;
+  letter-spacing: -2px;
+  line-height: 0.8;
+  margin: 0;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.parallax .scroller {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 80px;
+  display: flex;
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.parallax span {
+  display: block;
+  margin-right: 30px;
+}
+
+
+  .search {
+    @apply w-full bg-light-100/5 px-4 py-3 rounded-lg mt-10 max-w-3xl mx-auto;
+
+    & div {
+      @apply relative flex items-center;
+    }
+
+    & img {
+      @apply absolute left-2 h-5 w-5;
+    }
+
+    & input {
+      @apply w-full bg-transparent py-2 sm:pr-10 pl-10 text-base text-gray-200 placeholder-light-200 outline-hidden;
+    }
+  }
+
+  .all-movies {
+    @apply space-y-9;
+
+    & ul {
+      @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+    }
+  }
+
+  .movie-card {
+    @apply bg-dark-100 p-5 rounded-2xl shadow-inner shadow-light-100/10;
+
+    & img {
+      @apply rounded-lg h-auto w-full;
+    }
+
+    & h3 {
+      @apply text-white font-bold text-base line-clamp-1;
+    }
+
+    & .content {
+      @apply mt-2 flex flex-row items-center flex-wrap gap-2;
+    }
+
+    & .rating {
+      @apply flex flex-row items-center gap-1;
+    }
+
+    & .rating img {
+      @apply size-4 object-contain;
+    }
+
+    & .rating p {
+      @apply font-bold text-base text-white;
+    }
+
+    & .content span {
+      @apply text-sm text-gray-100;
+    }
+
+    & .content .lang {
+      @apply capitalize text-gray-100 font-medium text-base;
+    }
+
+    & .content .year {
+      @apply text-gray-100 font-medium text-base;
+    }
+  }
+}
+
+@utility text-gradient {
+  @apply bg-linear-to-r from-[#000000] to-[blue] bg-clip-text text-transparent;
+}
+
+@utility fancy-text {
+  -webkit-text-stroke: 5px rgba(206, 206, 251, 0.5);
+  font-size: 190px;
+  font-family: "Bebas Neue", sans-serif;
+}
+
+@utility hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

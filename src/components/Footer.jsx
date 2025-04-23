@@ -18,6 +18,9 @@ const Footer = () => {
                         <Github />
                         <Instagram />
                     </div>
+                    <div className='text-white text-sm'>
+                        andreaspeterc@gmail.com
+                    </div>
                 </div>
             </div>
         </div>

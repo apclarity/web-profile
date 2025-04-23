@@ -32,7 +32,7 @@ function Header() {
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
             >
-                <h2 className="font-extralight text-xl sm:text-3xl md:text-5xl text-white">
+                <h2 className="font-extralight text-2xl sm:text-3xl md:text-5xl text-white">
                     Hi, my name is <span>Andreas Peter C</span> !
                 </h2>
                 <div className="font-inter mt-10 text-2xl sm:text-4xl md:text-8xl font-bold leading-tight tracking-[-1%] text-white">

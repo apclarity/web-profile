@@ -3,7 +3,7 @@ import Header from '../../components/Header'
 import Content from '../../components/Content'
 import SmoothScrollContainer from '../../components/SmoothScrollContainer'
 
-const Home = () => {
+const Home = ({ setFooterY }) => {
     return (
         <div className='wrapper mt-16'>
             <SmoothScrollContainer>
@@ -12,7 +12,7 @@ const Home = () => {
                 </header>
                 <section>
                     <div className='mt-5'>
-                        <Content />
+                        <Content setFooterY={setFooterY} />
                     </div>
                 </section>
             </SmoothScrollContainer>

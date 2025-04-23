@@ -66,7 +66,7 @@ const Navbar = () => {
       `}>
                 <div className="flex items-center justify-center p-4">
                     <button
-                        className="md:hidden text-black"
+                        className="md:hidden text-black cursor-pointer"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -89,7 +89,9 @@ const Navbar = () => {
                                                 : 'text-black hover:underline font-medium'}
                     `}
                                     >
-                                        {menu.label}
+                                        <div className='text-lg md:text-xl'>
+                                            {menu.label}
+                                        </div>
                                     </button>
                                 </li>
                             ))}
@@ -99,8 +101,8 @@ const Navbar = () => {
 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="md:hidden px-4 pb-4">
-                        <ul className="font-medium flex flex-col space-y-2">
+                    <div className="md:hidden px-4  pb-4">
+                        <ul className="font-medium flex flex-col space-y-2 ">
                             {navItems.map((menu, index) => (
                                 <li key={index}>
                                     <button
@@ -109,13 +111,15 @@ const Navbar = () => {
                                             setIsMenuOpen(false)
                                         }}
                                         className={`
-                      block font-bold p-2 text-center
+                      block font-bold p-2 text-center cursor-pointer
                       ${activeSection === menu.scrollTo
-                                                ? 'text-white bg-blue-700/80 rounded-full'
-                                                : 'text-black hover:rounded-full hover:bg-blue-700/80'}
+                                                ? 'text-blue-700 font-arapey-italic underline font-bold'
+                                                : 'text-black hover:underline font-medium'}
                     `}
                                     >
-                                        {menu.label}
+                                        <div className='text-lg md:text-xl'>
+                                            {menu.label}
+                                        </div>
                                     </button>
                                 </li>
                             ))}

@@ -231,6 +231,24 @@
   margin-right: 30px;
 }
 
+.link-underline {
+		border-bottom-width: 0;
+		background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+		background-size: 0 3px;
+		background-position: 0 100%;
+		background-repeat: no-repeat;
+		transition: background-size .5s ease-in-out;
+	}
+
+	.link-underline-black {
+		background-image: linear-gradient(transparent, transparent), linear-gradient([blue], [blue])
+	}
+
+	.link-underline:hover {
+		background-size: 100% 3px;
+		background-position: 0 100%
+	}
+
 
   .search {
     @apply w-full bg-light-100/5 px-4 py-3 rounded-lg mt-10 max-w-3xl mx-auto;

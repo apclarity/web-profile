@@ -6,7 +6,7 @@ const TextCarousel = () => {
     return (
         <div>
             <div className="marquee-text font-inter font-bold py-16 mx-auto">
-                <div className="marquee-text-track text-2xl transition-all duration-200 text-blue-700">
+                <div className="marquee-text-track text-lg md:text-2xl transition-all duration-200 text-blue-700">
                     <p>Responsive</p>
                     <p >✦︎</p>
                     <p>Dynamic</p>

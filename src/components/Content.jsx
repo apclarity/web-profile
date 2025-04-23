@@ -8,6 +8,23 @@ import SpotifyNowPlaying from './SpotifyNowPlaying';
 import Availability from './Availability';
 import ComingSoon from './ComingSoon'
 
+const calculateDuration = (startDateStr, endDateStr) => {
+    const start = new Date(startDateStr);
+    const end = endDateStr ? new Date(endDateStr) : new Date();
+
+    let totalMonths = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth()) + 1;
+
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+
+    const yearStr = years > 0 ? `${years} year${years > 1 ? 's' : ''}` : '';
+    const monthStr = months > 0 ? `${months} month${months > 1 ? 's' : ''}` : '';
+
+    return [yearStr, monthStr].filter(Boolean).join(' ');
+};
+
+
+
 const Content = ({ setFooterY }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -146,7 +163,7 @@ const Content = ({ setFooterY }) => {
                                 <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[3.75rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-blue-700 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[3.75rem] after:-translate-x-1/2 after:translate-y-1.5">
                                     <div className="text-xl font-bold text-white">Surabaya, Indonesia</div>
                                 </div>
-                                <div className="text-white">June 2021 - now • 3 years 11 month</div>
+                                <div className="text-white">June 2021 - now • {calculateDuration('2021-06-01')}</div>
                             </div>
 
                             {/* Copy for other items */}
@@ -155,7 +172,7 @@ const Content = ({ setFooterY }) => {
                                 <div className="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-slate-300 sm:before:ml-[3.75rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-blue-700 after:border-4 after:box-content after:border-slate-50 after:rounded-full sm:after:ml-[3.75rem] after:-translate-x-1/2 after:translate-y-1.5">
                                     <div className="text-xl font-bold text-white">Surabaya, Indonesia</div>
                                 </div>
-                                <div className="text-white">March 2021 - June 2021 • 4 month</div>
+                                <div className="text-white">March 2021 - June 2021 • {calculateDuration('2021-03-01', '2021-06-01')}</div>
                             </div>
                         </div>
                     </div>
@@ -164,9 +181,9 @@ const Content = ({ setFooterY }) => {
             <div id='my-work' ref={myWorkRef}>
                 <MyWork />
             </div>
-            {/* <div>
+            <div className='py-20'>
                 <Availability />
-            </div> */}
+            </div>
             {/* <div>
                 <SpotifyNowPlaying />
             </div> */}

@@ -19,7 +19,7 @@ const ComingSoon = () => {
                     <span className="text-[200px] -ml-[50px] font-inter font-bold text-blue-700 blur-sm">
                         ✦︎
                     </span>
-                    <span className="text-9xl font-inter font-bold text-blue-700/60 backdrop-blur-2xl">
+                    <span className="text-9xl font-inter font-bold text-blue-700/60">
                         ✦︎
                     </span>
                     <span className="text-[160px] -mb-[300px] font-inter font-bold text-blue-700 blur-sm">
@@ -50,7 +50,7 @@ const ComingSoon = () => {
                         className="w-full px-4 flex justify-center"
                     >
                         <div className="w-full max-w-xs md:max-w-3xl text-center break-words text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-inter font-bold text-blue-700">
-                            Something cool is coming soon!
+                            Something awesome is on the way!
                         </div>
                     </motion.div>
                 </div>

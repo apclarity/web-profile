@@ -13,7 +13,6 @@ const App = () => {
     typeof window !== 'undefined' ? window.innerHeight : 0
   )
 
-  // keep initial footerY = viewport height
   useEffect(() => {
     const onResize = () => setFooterY(window.innerHeight)
     window.addEventListener('resize', onResize)
@@ -45,6 +44,5 @@ const App = () => {
     </Router>
   )
 }
-
 
 export default App

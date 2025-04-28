@@ -23,8 +23,6 @@ const calculateDuration = (startDateStr, endDateStr) => {
     return [yearStr, monthStr].filter(Boolean).join(' ');
 };
 
-
-
 const Content = ({ setFooterY }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
@@ -82,8 +80,6 @@ const Content = ({ setFooterY }) => {
                 onMouseMove={handleMouseMove}>
                 {/* card 1 */}
                 <motion.div
-
-
                     className="relative rounded-2xl overflow-hidden outline-2 outline-gray-100/10"
                 >
                     <div

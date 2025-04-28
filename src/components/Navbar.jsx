@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     const [scrollPosition, setScrollPosition] = useState(0)
@@ -10,7 +11,8 @@ const Navbar = () => {
     const navItems = [
         { label: 'Home', scrollTo: '#header' },
         { label: 'Tech Stack', scrollTo: '#tech-stack' },
-        { label: 'My work', scrollTo: '#my-work' }
+        { label: 'My work', scrollTo: '#my-work' },
+        { label: 'Playground', to: '/playground' }
     ]
 
     // Handle scroll up/down visibility
@@ -77,7 +79,16 @@ const Navbar = () => {
                         <ul className="font-inter flex flex-col md:flex-row md:space-x-8">
                             {navItems.map((menu, index) => (
                                 <li key={index}>
-                                    <button
+                                    {menu.to ? (
+                                        <Link to={menu.to} onClick={() => setIsMenuOpen(false)}>
+                                            <div className={`
+                      block text-xl cursor-pointer
+                      ${activeSection === menu.scrollTo
+                                                    ? 'text-blue-700 font-arapey-italic underline font-bold'
+                                                    : 'text-black hover:underline font-medium'}
+                    `}>{menu.label}</div>
+                                        </Link>
+                                    ) : (<button
                                         onClick={() => {
                                             window.lenis?.scrollTo(menu.scrollTo)
                                             setIsMenuOpen(false)
@@ -92,7 +103,8 @@ const Navbar = () => {
                                         <div className='text-lg md:text-xl'>
                                             {menu.label}
                                         </div>
-                                    </button>
+                                    </button>)}
+
                                 </li>
                             ))}
                         </ul>

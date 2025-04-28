@@ -2,10 +2,8 @@ import { useScroll, useTransform, motion } from 'framer-motion';
 import { useRef } from 'react';
 
 const ComingSoon = () => {
-    // Ganti nama variabel ini agar tidak bentrok
     const comingSoonRef = useRef(null);
 
-    // Scroll progress
     const { scrollYProgress: comingSoonScroll } = useScroll({
         target: comingSoonRef,
         offset: ['start end', 'end start'],

@@ -12,7 +12,7 @@ const Navbar = () => {
         { label: 'Home', scrollTo: '#header' },
         { label: 'Tech Stack', scrollTo: '#tech-stack' },
         { label: 'My work', scrollTo: '#my-work' },
-        { label: 'Playground', to: '/playground' }
+        // { label: 'Playground', to: '/playground' }
     ]
 
     // Handle scroll up/down visibility

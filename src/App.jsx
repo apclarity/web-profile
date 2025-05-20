@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navbar from './components/Navbar'
 import Home from './pages/home/Home';
-import Playground from './pages/Playground';
+import Playground from './pages/playground/Playground';
 import SmoothScrollContainer from './components/SmoothScrollContainer'
 import Footer from './components/Footer';
 import SpotifyCallback from './components/Callback';
